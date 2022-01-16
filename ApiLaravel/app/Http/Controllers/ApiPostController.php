@@ -17,18 +17,16 @@ class ApiPostController extends Controller
         //Get all Content of Model Post of DataBase
         $dataPost = Post::get();
         //validate if object $dataPost is empty
-        if(!$dataPost->isEmpty()){
+        if (!$dataPost->isEmpty()) {
             return response()->json([
-                "data"=> $dataPost
+                "data" => $dataPost
+            ]);
+        } else {
+            return response()->json([
+                "status" => 0,
+                "message" => "Data not found"
             ]);
         }
-        else{
-            return response()->json([
-                "status"=>0,
-                "message"=> "Data not found"
-            ]);
-        }
- 
     }
 
     /**
@@ -45,32 +43,12 @@ class ApiPostController extends Controller
         $dataPost->body = $request->body;
         $dataPost->save();
         return response()->json([
-            "status"=>1,
-            "message"=> "Post created succesfull"
+            "status" => 1,
+            "message" => "Post created succesfull"
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
-    {
-        //
-    }
 
     /**
      * Show the form for editing the specified resource.
@@ -92,7 +70,21 @@ class ApiPostController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $dataPost = Post::find($id);
+
+        $dataPost->title = $request->title;
+        $dataPost->body = $request->body;
+        if ($dataPost->save()) {
+            return response()->json([
+                "status" => 1,
+                "message" => "Post Update succesfull"
+            ]);
+        } else {
+            return response()->json([
+                "status" => 0,
+                "message" => "Error "
+            ]);
+        }
     }
 
     /**
@@ -102,21 +94,20 @@ class ApiPostController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function postDelete(Request $request)
-    {        
+    {
         //comprobamos si existe el id
-        if(Post::where("id", $request->id)->exists()){
+        if (Post::where("id", $request->id)->exists()) {
             $dataPost = Post::find($request->id);
-            $dataPost->delete(); 
+            $dataPost->delete();
             return response()->json([
-                "status"=>1,
-                "message"=> "Data deleted succesfull"
+                "status" => 1,
+                "message" => "Data deleted succesfull"
             ]);
-        }else{
+        } else {
             return response()->json([
-                "status"=>0,
-                "message"=> "Data not found"
-        ]);
+                "status" => 0,
+                "message" => "Data not found"
+            ]);
         }
-
     }
 }

@@ -5,11 +5,13 @@
 
     <div class="row">
         <div class="col-md-6">
-        <h1>Data of Api</h1>
+            <h1>Data of Api</h1>
         </div>
-        <div class="col-md-6">
-        <a href='/save'><button>Guardar data en Base de datos</button></a>
-
+        <div class="col-md-3">
+            <a href='/save'><button>Guardar data en Base de datos</button></a>
+        </div>
+        <div class="col-md-3">
+            <a href='/post'><button>Ir al dasboard</button></a>
         </div>
         
         @foreach($postArray  as $post)

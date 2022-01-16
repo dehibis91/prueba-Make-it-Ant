@@ -40,7 +40,7 @@ class HomeController extends Controller
         //Convert type data in json
         $dataPost = json_decode($res->getBody()->getContents(), true);
         //loop foreach for capture the properties of every item and save in database
-        echo ("<a href='/dasboard'><button>Ir al dasboard local</button></a>");
+        echo ("<a href='/post'><button>Ir al dasboard local</button></a>");
         echo ("<br>");
         echo ("<hr>");
 
@@ -57,7 +57,5 @@ class HomeController extends Controller
             }           
           }          
     }
-    public function dasboard(){
-        return view('post.index');
-    }
+
 }

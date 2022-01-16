@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PostController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -21,6 +21,6 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/save', [App\Http\Controllers\HomeController::class, 'savePostToBd'])->name('save');
-Route::get('/dasboard', [App\Http\Controllers\HomeController::class, 'dasboard'])->name('dasboard');
+Route::resource('post', PostController::class)->middleware('auth');
 
 
