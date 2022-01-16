@@ -1,0 +1,15 @@
+ApiLaravel/node_modules
+ApiLaravel/public/hot
+ApiLaravel/public/storage
+ApiLaravel/storage/*.key
+ApiLaravel/vendor
+.env
+.env.backup
+.phpunit.result.cache
+docker-compose.override.yml
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+ApiLaravel/.idea
+ApiLaravel/.vscode
