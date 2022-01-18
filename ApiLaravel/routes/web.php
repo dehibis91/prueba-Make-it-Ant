@@ -25,5 +25,6 @@ Route::get('/post/save', [App\Http\Controllers\HomeController::class, 'savePostT
 Route::get('/user/save', [App\Http\Controllers\HomeController::class, 'saveUserToBd'])->name('save-user');
 Route::resource('post', PostController::class)->middleware('auth');
 Route::resource('user', UserController::class)->middleware('auth');
+Route::get('/user/{user}/post', [App\Http\Controllers\UserController::class, 'show'])->name('user-post');
 
 

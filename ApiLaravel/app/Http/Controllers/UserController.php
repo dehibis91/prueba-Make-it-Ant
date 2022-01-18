@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Post;
 
 
 class UserController extends Controller
@@ -57,11 +58,15 @@ class UserController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(User $id, Post $post )
     {
-        //
+        $users = User::with("posts")->get();
+       
+        return view ('user.show',[
+            'dataUser' =>$users  
+      ]);
+        
     }
-
     /**
      * Show the form for editing the specified resource.
      *

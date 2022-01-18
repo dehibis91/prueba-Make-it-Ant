@@ -20,12 +20,12 @@
             <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th class="col-md-2">ID</th>
+                        <th class="col-md-1">ID</th>
                         <th class="col-md-2">Name</th>
                         <th class="col-md-2">Email</th>
                         <th class="col-md-2">City</th>
                         <th class="col-md-2">Company</th>
-                        <th class="col-md-2">Actions</th>
+                        <th class="col-md-3">Actions</th>
 
                     </tr>
                 </thead>
@@ -44,6 +44,7 @@
                                 <!--El boton submit ejecuta la acción del formulario-->
                                 <a href="/user/{{$user['id']}}/edit" type="btn" class="btn btn-success btn-block">Edit</a>
                                 <button type="submit" class="btn btn-danger btn-block" onclick="return confirm('Está seguro que desea eliminar ?')">Delete</button>
+                                <a href="/user/{{$user->id}}/post/" type="btn" class="btn btn-success btn-block">View Post</a>
                             </form>
                         </td>
 
