@@ -10,10 +10,17 @@ class Post extends Model
     use HasFactory;
     protected $table = "postdata";
     protected $fillable = [
-        "userId",
+        
         "id",
         "title",
-        "body"
+        "body",
+        "userId",
     ];
     public $timestamps = false;
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
 }

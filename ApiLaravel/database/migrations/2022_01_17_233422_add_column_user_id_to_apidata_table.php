@@ -14,7 +14,12 @@ class AddColumnUserIdToApidataTable extends Migration
     public function up()
     {
         Schema::table('postdata', function (Blueprint $table) {
-            $table->string('userId');
+                $table->unsignedBigInteger('userId');
+                $table->foreign('userId')
+                ->references('id')
+                ->on('users')
+                ->onDelete('cascade');
+
         });
     }
 

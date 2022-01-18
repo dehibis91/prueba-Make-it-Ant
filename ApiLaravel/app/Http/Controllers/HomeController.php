@@ -46,10 +46,11 @@ class HomeController extends Controller
             if (Post::where("id", $item["id"])->exists()) {
                 echo ("El Registro " . $item["id"] . " ya existe en la Base de datos, unicammente se registrarán nuevos datos " . "<br>");
             } else {
-                $newPost = new Post();
+                $newPost = new Post();                
                 $newPost->id = $item["id"];
                 $newPost->title = $item["title"];
                 $newPost->body = $item["body"];
+                $newPost->userId = $item["userId"];
                 $newPost->save();
             }
         }
