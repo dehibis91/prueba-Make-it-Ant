@@ -38,6 +38,7 @@ class ApiPostController extends Controller
     {
         //Create new Model Post (new content)
         $dataPost = new Post();
+        $dataPost->userId = $request->userId;
         $dataPost->id = $request->id;
         $dataPost->title = $request->title;
         $dataPost->body = $request->body;

@@ -5,23 +5,20 @@
 
     <div class="row">
         <div class="col-md-6">
-            <h1>Data of Api</h1>
+            <h1>Bienvenido</h1>
+        </div>
+        <p>Haz clic en los botones para sincronizar a la Bd la data desde el api para usuario y sus post</p>
+        <div class="col-md-3">
+            <a href='/user/save'><button>Guardar data de Usuarios</button></a>
         </div>
         <div class="col-md-3">
-            <a href='/save'><button>Guardar data en Base de datos</button></a>
+            <a href='/post/save'><button>Guardar data de post</button></a>
         </div>
         <div class="col-md-3">
-            <a href='/post'><button>Ir al dasboard</button></a>
+            <a href='/user'><button>Ir al dasboard usuario</button></a>
         </div>
         
-        @foreach($postArray  as $post)
-            <div class="col-md-6">
-                <ul class="list-group mt-2 mb-4">                    
-                    <li class="list-group-item active">{{$post['id']}} - {{$post['title']}}</li>
-                    <li class="list-group-item ">{{$post['body']}}</li>
-                </ul>
-            </div>
-        @endforeach
+
     </div>
 </div>
 @endsection

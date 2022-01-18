@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\UserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -20,7 +21,9 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/save', [App\Http\Controllers\HomeController::class, 'savePostToBd'])->name('save');
+Route::get('/post/save', [App\Http\Controllers\HomeController::class, 'savePostToBd'])->name('save-post');
+Route::get('/user/save', [App\Http\Controllers\HomeController::class, 'saveUserToBd'])->name('save-user');
 Route::resource('post', PostController::class)->middleware('auth');
+Route::resource('user', UserController::class)->middleware('auth');
 
 

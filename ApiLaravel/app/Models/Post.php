@@ -10,6 +10,7 @@ class Post extends Model
     use HasFactory;
     protected $table = "postdata";
     protected $fillable = [
+        "userId",
         "id",
         "title",
         "body"
